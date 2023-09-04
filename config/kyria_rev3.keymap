@@ -21,6 +21,35 @@
  */
 
 / {
+
+    behaviors {
+        my_left_encoder: my_left_encoder {
+            compatible = "zmk,behavior-sensor-rotate,alps,ec11";
+            label = "LEFT_ENCODER";
+            a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+            b-gpios = <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+            #sensor-binding-cells = <0>;
+            steps = <80>;
+            //bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
+        };
+
+        my_right_encoder: my_right_encoder {
+            compatible = "zmk,behavior-sensor-rotate,alps,ec11";
+            label = "RIGHT_ENCODER";
+            a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+            b-gpios = <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+            #sensor-binding-cells = <0>;
+            steps = <80>;
+            //bindings = <&kp PG_UP>, <&kp PG_DN>;
+        };
+    };
+
+    sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&my_left_encoder &my_right_encoder>;
+        triggers-per-rotation = <30>;
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
