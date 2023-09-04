@@ -3,7 +3,7 @@ left_encoder: encoder_left {
     label = "LEFT_ENCODER";
     a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     b-gpios = <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-//   resolution = <1>;
+   resolution = <1>;
 //    steps = <30>;
     status = "disabled";
 };
@@ -13,7 +13,7 @@ right_encoder: encoder_right {
     label = "RIGHT_ENCODER";
     a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     b-gpios = <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-//   resolution = <4>;
+   resolution = <8>;
 //    steps = <60>;
     status = "disabled";
 };
