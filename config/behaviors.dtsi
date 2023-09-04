@@ -4,7 +4,7 @@ left_encoder: encoder_left {
     a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     b-gpios = <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 //    resolution = <2>;
-    steps = <40>;
+    steps = <30>;
     status = "disabled";
 };
 
@@ -18,6 +18,7 @@ right_encoder: encoder_right {
 };
 
 sensors {
-  compatible = "zmk,keymap-sensors";
-  sensors = <&left_encoder &right_encoder>;
+    compatible = "zmk,keymap-sensors";
+    sensors = <&left_encoder &right_encoder>;
+    triggers-per-rotation = <30>;
 };
