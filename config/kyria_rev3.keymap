@@ -30,7 +30,7 @@
             b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
             //sensor-binding-cells = <0>;
             steps = <80>;
-            //bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
+            bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
         };
 
         my_right_encoder: my_right_encoder {
@@ -40,14 +40,8 @@
             b-gpios = <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
             //sensor-binding-cells = <0>;
             steps = <80>;
-            //bindings = <&kp PG_UP>, <&kp PG_DN>;
+            bindings = <&kp PG_UP>, <&kp PG_DN>;
         };
-    };
-
-    sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&my_left_encoder &my_right_encoder>;
-        triggers-per-rotation = <30>;
     };
 
     keymap {
@@ -65,7 +59,12 @@ bindings = <
                                       &kp  LGUI   &kp  LALT   &kp  LSHFT  &to   L1    &to   L2      &to   L3    &kp  RET    &kp SPACE   &kp   BSPC  &kp   DEL
 //                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
 >;
-sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+    sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&my_left_encoder &my_right_encoder>;
+        triggers-per-rotation = <30>;
+    };
+//sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 };
 
 L2 {
@@ -81,7 +80,12 @@ bindings = <
                                       &kp  LGUI   &kp  LALT   &kp  LSHFT  &to   L1    &to   L2      &to   L3    &kp  RET    &kp SPACE   &kp   BSPC  &kp   N0
 //                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
 >;
-sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp PG_UP PG_DN>;
+    sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&my_left_encoder &my_right_encoder>;
+        triggers-per-rotation = <30>;
+    };
+//sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp PG_UP PG_DN>;
 };
 
 L3 {
@@ -98,7 +102,12 @@ bindings = <
                                       &kp  A      &kp  LALT   &kp  LSHFT  &to   L1    &to   L2      &to   L3    &kp  RET    &kp SPACE   &kp   BSPC  &kp   DEL
 //                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
 >;
-sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_BRI_INC C_BRI_DEC>;
+    sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&my_left_encoder &my_right_encoder>;
+        triggers-per-rotation = <30>;
+    };
+//sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_BRI_INC C_BRI_DEC>;
 };
 
     };
