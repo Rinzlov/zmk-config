@@ -3,8 +3,8 @@ left_encoder: encoder_left {
     label = "LEFT_ENCODER";
     a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     b-gpios = <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-//    resolution = <2>;
-    steps = <30>;
+    resolution = <1>;
+    steps = <120>;
     status = "disabled";
 };
 
