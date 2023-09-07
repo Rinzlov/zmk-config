@@ -29,24 +29,28 @@
         round: round {
             compatible = "zmk,behavior-mod-morph";
             label = "round";
+            #binding-cells = <0>;
             bindings = <&kp LPAR>, <&kp RPAR>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         square: square {
             compatible = "zmk,behavior-mod-morph";
             label = "square";
+            #binding-cells = <0>;
             bindings = <&kp LBKT>, <&kp RBKT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         curly: curly {
             compatible = "zmk,behavior-mod-morph";
             label = "curly";
+            #binding-cells = <0>;
             bindings = <&kp LBRC>, <&kp RBRC>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         angled: angled {
             compatible = "zmk,behavior-mod-morph";
             label = "angled";
+            #binding-cells = <0>;
             bindings = <&kp LT>, <&kp GT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
