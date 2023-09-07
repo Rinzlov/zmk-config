@@ -14,6 +14,10 @@
 #define combo_global_quick_tap 150
 #define combo_global_quick_tap_long 300
 
+// Encoder resolutions
+&left_encoder   { resolution = <2>; };
+&right_encoder  { resolution = <1>; };
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -60,24 +64,6 @@
             #binding-cells = <0>;
             bindings = <&kp LT>, <&kp GT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        my_left_encoder: my_left_encoder {
-            compatible = "zmk,behavior-sensor-rotate,alps,ec11";
-            a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            //sensor-binding-cells = <0>;
-            steps = <80>;
-            bindings = <&kp C_VOL_UP>, <&kp C_VOL_DN>;
-        };
-
-        my_right_encoder: my_right_encoder {
-            compatible = "zmk,behavior-sensor-rotate,alps,ec11";
-            a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            b-gpios = <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-            //sensor-binding-cells = <0>;
-            steps = <80>;
-            bindings = <&kp PG_UP>, <&kp PG_DN>;
         };
     };
 
