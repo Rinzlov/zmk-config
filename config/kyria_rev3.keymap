@@ -9,6 +9,23 @@
 #define L2 2
 #define L3 3
 
+ZMK_BEHAVIOR(round, mod_morph,
+    bindings = <&kp LPAR>, <&kp RPAR>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(square, mod_morph,
+    bindings = <&kp LBKT>, <&kp RBKT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(curly, mod_morph,
+    bindings = <&kp LBRC>, <&kp RBRC>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+ZMK_BEHAVIOR(angled, mod_morph,
+    bindings = <&kp LT>, <&kp GT>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+)
+
 #define combo_timeout 30
 #define combo_timeout_long 60
 #define combo_global_quick_tap 150
@@ -19,7 +36,6 @@
         compatible = "zmk,combos";
         combo_L3 {
             timeout-ms = <combo_timeout>;
-            global-quick-tap-ms = <combo_global_quick_tap>;
             key-positions = <30 43>;
             //layers = <BASE WIN NAV NUM>;
             bindings = <&kp A>;
@@ -29,7 +45,6 @@
     behaviors {
         my_left_encoder: my_left_encoder {
             compatible = "zmk,behavior-sensor-rotate,alps,ec11";
-            label = "LEFT_ENCODER";
             a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
             b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
             //sensor-binding-cells = <0>;
@@ -39,7 +54,6 @@
 
         my_right_encoder: my_right_encoder {
             compatible = "zmk,behavior-sensor-rotate,alps,ec11";
-            label = "RIGHT_ENCODER";
             a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
             b-gpios = <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
             //sensor-binding-cells = <0>;
@@ -71,8 +85,8 @@ bindings = <
 // { }   [ ]   ( )   < >   ' "         ! ¬ ` £ $ % ^ &     * _ - + = # ~ @ ? |
 //╭──── \ ────┬──── } ────┬──── ] ────┬──── ) ────┬──── > ────┬──── " ────╮          BRACKETS + NUMERIC + VOLUME            ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
   &kp  BSLH   &kp  RBRC   &kp  RBKT   &kp  RPAR   &kp  GT     &kp  DQT                                                      &kp C_MUTE   &kp   N7   &kp   N8    &kp   N9    &none       &none
-//├──── / ────┼──── { ────┼──── [ ────┼──── ( ────┼──── < ────┼──── ' ────┤                                                 ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤  
-  &kp  FSLH   &kp  LBRC   &kp  LBKT   &kp  LPAR   &kp  LT     &kp  SQT                                                      &kp C_VOL_UP &kp   N4   &kp   N5    &kp   N6    &none       &none
+//├──── / ────┼─── { } ───┼─── [ ] ───┼─── ( ) ───┼─── < > ───┼─── ' " ───┤                                                 ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤  
+  &kp  FSLH   &curly      &square     &round      &angled     &kp  APOS                                                     &kp C_VOL_UP &kp   N4   &kp   N5    &kp   N6    &none       &none
 //├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┬───────────╮ ╭───────────┬───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤
   &kp  LSHFT  &kp   Z     &kp   X     &kp   C     &kp   V     &kp   B     &none       &none         &none       &none       &kp C_VOL_DN &kp   N1   &kp   N2  &kp     N3    &none       &none
 //╰───────────┴───────────┴───────────┼───────────┼──────────┬┼┬──────────┼───────────┬───────────┤ ├───────────┬───────────┼──────────┬┼┬──────────┼───────────┼───────────┴───────────┴───────────╯
