@@ -9,23 +9,6 @@
 #define L2 2
 #define L3 3
 
-ZMK_BEHAVIOR(round, mod_morph,
-    bindings = <&kp LPAR>, <&kp RPAR>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(square, mod_morph,
-    bindings = <&kp LBKT>, <&kp RBKT>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(curly, mod_morph,
-    bindings = <&kp LBRC>, <&kp RBRC>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-ZMK_BEHAVIOR(angled, mod_morph,
-    bindings = <&kp LT>, <&kp GT>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
-)
-
 #define combo_timeout 30
 #define combo_timeout_long 60
 #define combo_global_quick_tap 150
@@ -43,6 +26,28 @@ ZMK_BEHAVIOR(angled, mod_morph,
     };
 
     behaviors {
+        round: round {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp LPAR>, <&kp RPAR>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        
+        square: square {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp LBKT>, <&kp RBKT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        curly: curly {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp LBRC>, <&kp RBRC>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        angled: angled {
+            compatible = "zmk,behavior-mod-morph";
+            bindings = <&kp LT>, <&kp GT>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
         my_left_encoder: my_left_encoder {
             compatible = "zmk,behavior-sensor-rotate,alps,ec11";
             a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
