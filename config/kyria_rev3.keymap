@@ -59,12 +59,7 @@ bindings = <
                                       &kp  LGUI   &kp  LALT   &kp  LSHFT  &to   L1    &to   L2      &to   L3    &kp  RET    &kp SPACE   &kp   BSPC  &kp   DEL
 //                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
 >;
-    sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&my_left_encoder &my_right_encoder>;
-        triggers-per-rotation = <30>;
-    };
-//sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 };
 
 L2 {
@@ -80,12 +75,7 @@ bindings = <
                                       &kp  LGUI   &kp  LALT   &kp  LSHFT  &to   L1    &to   L2      &to   L3    &kp  RET    &kp SPACE   &kp   BSPC  &kp   N0
 //                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
 >;
-    sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&my_left_encoder &my_right_encoder>;
-        triggers-per-rotation = <30>;
-    };
-//sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp PG_UP PG_DN>;
+sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp PG_UP PG_DN>;
 };
 
 L3 {
@@ -102,12 +92,7 @@ bindings = <
                                       &kp  A      &kp  LALT   &kp  LSHFT  &to   L1    &to   L2      &to   L3    &kp  RET    &kp SPACE   &kp   BSPC  &kp   DEL
 //                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
 >;
-    sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&my_left_encoder &my_right_encoder>;
-        triggers-per-rotation = <30>;
-    };
-//sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_BRI_INC C_BRI_DEC>;
+sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_BRI_INC C_BRI_DEC>;
 };
 
     };
