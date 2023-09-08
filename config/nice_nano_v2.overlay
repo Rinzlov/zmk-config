@@ -9,6 +9,6 @@
 
     sensors {
         sensors = <&left_encoder &right_encoder>;
-        triggers-per-rotation = <72>;
+        triggers-per-rotation = <36>;
     };
 };
