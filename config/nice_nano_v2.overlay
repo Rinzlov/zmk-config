@@ -1,11 +1,9 @@
 / {
     left_encoder: encoder_left {
-        /delete-property/ resolution;
         steps = <144>;
     };
 
     right_encoder: encoder_right {
-        /delete-property/ resolution;
         steps = <288>;
     };
 
