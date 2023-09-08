@@ -16,8 +16,14 @@
 #define combo_global_quick_tap_long 300
 
 // Encoder resolutions
-&left_encoder   { resolution = <8>; };
-&right_encoder  { resolution = <12>; };
+&left_encoder {
+    status = "okay";
+    resolution = <6>;
+};
+&right_encoder {
+    status = "okay";
+    resolution = <1>;
+};
 
 / {
     combos {
@@ -131,7 +137,7 @@ bindings = <
                                       &trans      &trans      &trans      &trans      &trans        &trans      &trans      &trans      &trans      &trans
 //                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
 >;
-sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_BRI_INC C_BRI_DEC>;
+sensor-bindings = <&inc_dec_kp LEFT RIGHT &inc_dec_kp LEFT RIGHT>;
 };
 
     };
