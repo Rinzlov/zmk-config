@@ -3,18 +3,16 @@
         /delete-property/ resolution;
         steps = <72>;
         status = "okay";
-        triggers-per-rotation = <36>;
     };
 
     right_encoder: encoder_right {
         /delete-property/ resolution;
         steps = <142>;
         status = "okay";
-        triggers-per-rotation = <36>;
     };
 
     sensors {
         sensors = <&left_encoder &right_encoder>;
-
+        triggers-per-rotation = <36>;
     };
 };
