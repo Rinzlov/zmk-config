@@ -1,10 +1,10 @@
 / {
     left_encoder: encoder_left {
-        steps = <144>;
+        steps = <72>;
     };
 
     right_encoder: encoder_right {
-        steps = <288>;
+        steps = <144>;
     };
 
     sensors {
