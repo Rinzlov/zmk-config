@@ -15,15 +15,7 @@
 #define combo_global_quick_tap 150
 #define combo_global_quick_tap_long 300
 
-// Encoder resolutions
-&left_encoder {
-    status = "okay";
-    resolution = <6>;
-};
-&right_encoder {
-    status = "okay";
-    resolution = <1>;
-};
+
 
 / {
     combos {
