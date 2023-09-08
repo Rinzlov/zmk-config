@@ -1,15 +1,16 @@
 / {
     left_encoder: encoder_left {
         /delete-property/ resolution;
-        steps = <144>;
+        steps = <60>;
     };
 
     right_encoder: encoder_right {
         /delete-property/ resolution;
-        steps = <144>;
+        steps = <60>;
     };
 
     sensors {
-        triggers-per-rotation = <20>;
+        sensors = <&left_encoder &right_encoder>;
+        triggers-per-rotation = <30>;
     };
 };
