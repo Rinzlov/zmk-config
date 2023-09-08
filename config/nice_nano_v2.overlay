@@ -1,12 +1,12 @@
 / {
     left_encoder: encoder_left {
         /delete-property/ resolution;
-        steps = <60>;
+        steps = <30>;
     };
 
     right_encoder: encoder_right {
         /delete-property/ resolution;
-        steps = <60>;
+        steps = <120>;
     };
 
     sensors {
