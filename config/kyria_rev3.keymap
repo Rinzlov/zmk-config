@@ -124,7 +124,7 @@
     };
 
     macros {
-        hard_dqt: hard_gbp {
+        hard_dqt: hard_dqt {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -134,7 +134,7 @@
                 ;
             label = "HARD_DQT";
         };
-        hard_dqt: hard_dqt {
+        hard_money: hard_money {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings
@@ -142,7 +142,7 @@
                 , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N6 &kp KP_N3>
                 , <&macro_release &kp LALT>
                 ;
-            label = "HARD_DQT";
+            label = "HARD_MONEY";
         };
     };
 
