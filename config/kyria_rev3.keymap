@@ -6,9 +6,9 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define L0 0
-#define L1 1
-#define L2 2
-#define L3 3
+#define L1_SYM 1
+#define L2_ARR 2
+#define L3_FKEY 3
 
 #define combo_timeout 30
 #define combo_timeout_long 60
@@ -18,21 +18,21 @@
 
 
 / {
-    combos {
-        compatible = "zmk,combos";
-        combo_L2 {
-            timeout-ms = <combo_timeout>;
-            key-positions = <30 43>;
-            //layers = <BASE WIN NAV NUM>;
-            bindings = <&to L2>;
-        };
-        combo_L3 {
-            timeout-ms = <combo_timeout>;
-            key-positions = <43 44>;
-            //layers = <BASE WIN NAV NUM>;
-            bindings = <&to L3>;
-        };
-    };
+    //combos {
+    //    compatible = "zmk,combos";
+    //    combo_L2 {
+    //        timeout-ms = <combo_timeout>;
+    //        key-positions = <30 43>;
+    //        //layers = <BASE WIN NAV NUM>;
+    //        bindings = <&mo L2>;
+    //    };
+    //    combo_L3 {
+    //        timeout-ms = <combo_timeout>;
+    //        key-positions = <43 44>;
+    //        //layers = <BASE WIN NAV NUM>;
+    //        bindings = <&mo L3>;
+    //    };
+    //};
 
     behaviors {
         quo: quo {
@@ -86,6 +86,22 @@
         };
 
         // Double symbols
+        com_qmark: com_qmark { // , !
+            compatible = "zmk,behavior-mod-morph";
+            label = "com_qmark";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp QMARK>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        dot_excl: dot_excl { // . !
+            compatible = "zmk,behavior-mod-morph";
+            label = "dot_excl";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp EXCLAMATION>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
         qmark: qmark { // ? !
             compatible = "zmk,behavior-mod-morph";
             label = "qmark";
@@ -148,32 +164,32 @@
 
     keymap {
         compatible = "zmk,keymap";
-//                        Needed near:  = - _
+
 L0 {
 bindings = <
 //╭─0─────────┬─1─────────┬─2─────────┬─3─────────┬─4─────────┬─5─────────╮            LETTERS + BASE CTRL KEYS             ╭─6─────────┬─7─────────┬─8─────────┬─9─────────┬─10────────┬─11────────╮
   &kp   ESC   &kp   Q     &kp   W     &kp   E     &kp   R     &kp   T                                                       &kp    Y    &kp    U    &kp    I    &kp    O    &kp    P    &kp  DEL
-//├─12────────┼─13────────┼─14────────┼─15────────┼─16────────┼─17────────┤                                                 ├─18────────┼─19────────┼─20────────┼─21────────┼─22─ ; : ──┼─23─ - _ ──┤
-  &kp   TAB   &kp   A     &kp   S     &kp   D     &kp   F     &kp   G                                                       &kp    H    &kp    J    &kp    K    &kp    L    &kp   SEMI  &kp MINUS
-//├─24────────┼─25────────┼─26────────┼─27────────┼─28────────┼─29────────┼─30────────┬─31────────╮ ╭─32────────┬─33────────┼─34────────┼─35────────┼─36─ , < ──┼─37─ . > ──┼─38─ / ? ──┼─39─  \ ! ─┤
-  &kp  LCTRL  &kp   Z     &kp   X     &kp   C     &kp   V     &kp   B     &mo   L3    &none         &none       &to  L0     &kp    N    &kp    M    &kp  COMMA  &kp   DOT   &kp  FSLH   &bslash_ex
-//╰───────────┴───────────┴───────────┼─40────────┼─41───────┬┼┬42────────┼─43──V^────┬─44────────┤ ├─45────────┬─46────────┼─47───────┬┼┬48────────┼─49────────┼───────────┴───────────┴───────────╯
-                                      &kp  LGUI   &kp  LALT   &kp  LSHFT  &mo   L1    &mo   L2      &mo   L2    &kp  RET    &kp SPACE   &kp  BSPC   &kp RALT
-//                                    ╰───────────┴──────────┴┴┴──────────┴────────< L2 >─────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
+//├─12────────┼─13────────┼─14────────┼─15────────┼─16────────┼─17────────┤                                                 ├─18────────┼─19────────┼─20────────┼─21────────┼─22─ ; : ──┼─23─  _  ──┤
+  &kp   TAB   &kp   A     &kp   S     &kp   D     &kp   F     &kp   G                                                       &kp    H    &kp    J    &kp    K    &kp    L    &kp   SEMI  &kp UNDER
+//├─24────────┼─25────────┼─26────────┼─27────────┼─28────────┼─29────────┼─30────────┬─31────────╮ ╭─32────────┬─33────────┼─34────────┼─35────────┼─36─ , ? ──┼─37─ . ! ──┼─38─ ' " ──┼─39─ @ % ──┤
+  &kp  LCTRL  &kp   Z     &kp   X     &kp   C     &kp   V     &kp   B     &none        &none         &none       &to  L0     &kp    N    &kp    M    &com_qmark  &dot_excl   &quo        &at_prc
+//╰───────────┴───────────┴───────────┼─40────────┼─41───────┬┼┬42────────┼─43────────┬─44────────┤ ├─45────────┬─46────────┼─47───────┬┼┬48────────┼─49────────┼───────────┴───────────┴───────────╯
+                                      &kp  LGUI   &kp  LALT   &kp  LSHFT  &mo L1_SYM  &mo L3_FKEY    &mo L2_ARR &kp  RET    &kp SPACE   &kp  BSPC   &kp RALT
+//                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
 >;
 sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 };
 
-L1 {
+L1_SYM {
 bindings = <
 // HOME END PG_UP PG_DN CAPS SLCK
 // ?? K_APP
-//╭───────────┬───  [  ───┬───  ]  ───┬───  {  ───┬───  }  ───┬───────────╮            SYMBOLS + NUMERIC + CALC             ╭──── + ────┬───────────┬───────────┬───────────┬───────────┬───────────╮
-  &trans      &kp LBKT    &kp RBKT    &kp LBRC    &kp RBRC    &kp PSCRN                                                     &kp PLUS    &kp   N7   &kp   N8     &kp   N9    &kp  FSLH   &trans
-//├───────────┼───  <  ───┼───  >  ───┼───  (  ───┼───  )  ───┼─── ' " ───┤                                                 ├───  =  ───┼───────────┼───────────┼───────────┼──── * ────┼───────────┤
-  &trans      &kp LT      &kp GT      &kp LPAR    &kp RPAR    &quo                                                          &kp EQUAL   &kp   N4   &kp   N5     &kp   N6    &kp  STAR   &trans
-//├───────────┼─── ` ¬ ───┼─── £ $ ───┼───────────┼───────────┼───────────┼───────────┬───────────╮ ╭───────────┬───────────┼─── - _ ───┼───────────┼───────────┼───────────┼──── ^ ────┼───────────┤
-  &trans      &kp  GRAVE  &money      &hard_dqt   &mt A B     &kp INSERT  &trans      &trans        &trans      &trans      &kp MINUS   &kp   N1   &kp   N2     &kp   N3    &kp  CARET  &trans
+//╭───────────┬───  [  ───┬───  ]  ───┬───  {  ───┬───  }  ───┬──── ~ ────╮            SYMBOLS + NUMERIC + CALC             ╭──── + ────┬───────────┬───────────┬───────────┬───────────┬───────────╮
+  &trans      &kp  LBKT   &kp  RBKT   &kp  LBRC   &kp  RBRC   &kp TILDE                                                     &kp PLUS    &kp   N7   &kp   N8     &kp   N9    &kp  FSLH   &trans
+//├───────────┼───  <  ───┼───  >  ───┼───  (  ───┼───  )  ───┼──── # ────┤                                                 ├───  =  ───┼───────────┼───────────┼───────────┼──── * ────┼───────────┤
+  &trans      &kp  LT     &kp  GT     &kp  LPAR   &kp  RPAR   &kp HASH                                                      &kp EQUAL   &kp   N4   &kp   N5     &kp   N6    &kp  STAR   &trans
+//├───────────┼───  /  ───┼───  \  ───┼──── & ────┼──── | ────┼───     ───┼───────────┬───────────╮ ╭───────────┬───────────┼───  -  ───┼───────────┼───────────┼───────────┼──── ^ ────┼───────────┤
+  &trans      &kp  FSLH   &kp  BSLH   &AMPERSAND  &PIPE       &none       &trans      &trans        &trans      &trans      &kp MINUS   &kp   N1   &kp   N2     &kp   N3    &kp  CARET  &trans
 //╰───────────┴───────────┴───────────┼───────────┼──────────┬┼┬──────────┼───────────┬───────────┤ ├───────────┬───────────┼──────────┬┼┬──────────┼───────────┼───────────┴───────────┴───────────╯
                                       &trans      &trans      &trans      &trans      &trans        &trans      &trans      &trans      &trans      &kp   N0
 //                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
@@ -181,23 +197,17 @@ bindings = <
 sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp PG_UP PG_DN>;
 };
 
-// DEEEEEEEEEEEEEEEEEEEEL
-//╭───────────┬─── @ % ───┬─── # ~ ───┬─── & | ───┬─── / \ ───┬───────────
-//  &trans      &at_prc     &hash       &bool       &slash      &kp PSCRN
-//├─── ' " ───
-//  &quo
-//├───────────┼─── ` ¬ ───┼─── £ $ ───┼───────────┼─── ? ! ───┼───────────
-//  &trans      &kp  GRAVE  &money      &none       &qmark      &kp INSERT
-//╰───────────┴───────────┴───────────┼───────────┼──────────┬┼┬──────────
-// DEEEEEEEEEEEEEEEEEEEEL
+//├─── ` ¬ ───┼─── £ $ ─
+//  &kp  GRAVE  &money
 
 
-L2 {
+
+L2_ARR {
 bindings = <
-//╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮               ARROWS + MEDIA                    ╭─ |> || ───┬─── << ────┬─── >> ────┬───────────┬───────────┬───────────╮
+//╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮               ARROWS + MEDIA                    ╭──── ⏯ ────┬─── << ────┬─── >> ────┬───────────┬───────────┬───────────╮
   &trans      &none       &none       &none       &none       &none                                                         &kp C_PP    &kp C_PREV  &kp C_NEXT  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP
 //├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                 ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤
-  &trans      &none       &none       &none       &none       &none                                                         &none       &kp  LEFT   &kp   UP    &kp  DOWN   &kp  RIGHT  &trans
+  &trans      &none       &none       &kp INSERT  &kp PSCRN   &none                                                         &none       &kp  LEFT   &kp   UP    &kp  DOWN   &kp  RIGHT  &trans
 //├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┬───────────╮ ╭───────────┬───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤
   &trans      &none       &none       &none       &none       &none       &trans      &trans        &trans      &trans      &none       &none       &none       &none       &none       &trans
 //╰───────────┴───────────┴───────────┼───────────┼──────────┬┼┬──────────┼───────────┬───────────┤ ├───────────┬───────────┼──────────┬┼┬──────────┼───────────┼───────────┴───────────┴───────────╯
@@ -207,7 +217,7 @@ bindings = <
 sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_BRI_INC C_BRI_DEC>;
 };
 
-L3 {
+L3_FKEY {
 bindings = <
 //╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮               F Keys                            ╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮
   &trans      &bt BT_CLR  &none       &none       &none       &sys_reset                                                    &none       &kp   F7    &kp   F8    &kp   F9    &kp   F12   &trans
