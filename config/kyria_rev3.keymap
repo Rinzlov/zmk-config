@@ -35,13 +35,6 @@
     //};
 
     behaviors {
-        quo: quo {
-            compatible = "zmk,behavior-mod-morph";
-            label = "quotes";
-            #binding-cells = <0>;
-            bindings = <&kp SQT>, <&kp DQT>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
         round: round {
             compatible = "zmk,behavior-mod-morph";
             label = "round";
@@ -130,11 +123,18 @@
             bindings = <&kp HASH>, <&kp TILDE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        quo: quo {
+            compatible = "zmk,behavior-mod-morph";
+            label = "quotes";
+            #binding-cells = <0>;
+            bindings = <&kp SQT>, <&kp AT_SIGN>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
         at_prc: at_prc { // @ %
             compatible = "zmk,behavior-mod-morph";
             label = "at_prc";
             #binding-cells = <0>;
-            bindings = <&kp AT_SIGN>, <&kp PERCENT>;
+            bindings = <&kp PERCENT>, <&kp DQT>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -171,7 +171,7 @@ bindings = <
   &kp   ESC   &kp   Q     &kp   W     &kp   E     &kp   R     &kp   T                                                       &kp    Y    &kp    U    &kp    I    &kp    O    &kp    P    &kp  DEL
 //├─12────────┼─13────────┼─14────────┼─15────────┼─16────────┼─17────────┤                                                 ├─18────────┼─19────────┼─20────────┼─21────────┼─22─ ; : ──┼─23─  _  ──┤
   &kp   TAB   &kp   A     &kp   S     &kp   D     &kp   F     &kp   G                                                       &kp    H    &kp    J    &kp    K    &kp    L    &kp   SEMI  &kp UNDER
-//├─24────────┼─25────────┼─26────────┼─27────────┼─28────────┼─29────────┼─30────────┬─31────────╮ ╭─32────────┬─33────────┼─34────────┼─35────────┼─36─ , ? ──┼─37─ . ! ──┼─38─ ' " ──┼─39─ @ % ──┤
+//├─24────────┼─25────────┼─26────────┼─27────────┼─28────────┼─29────────┼─30────────┬─31────────╮ ╭─32────────┬─33────────┼─34────────┼─35────────┼─36─ , ? ──┼─37─ . ! ──┼─38─ ' " ──┼─39─ % @ ──┤
   &kp  LCTRL  &kp   Z     &kp   X     &kp   C     &kp   V     &kp   B     &none       &none         &none       &to  L0     &kp    N    &kp    M    &com_qmark  &dot_excl   &quo        &at_prc
 //╰───────────┴───────────┴───────────┼─40────────┼─41───────┬┼┬42────────┼─43────────┬─44────────┤ ├─45────────┬─46────────┼─47───────┬┼┬48────────┼─49────────┼───────────┴───────────┴───────────╯
                                       &kp  LGUI   &kp  LALT   &kp  LSHFT  &mo L1_SYM  &mo L3_FKEY   &mo L2_ARR  &kp  RET    &kp SPACE   &kp  BSPC   &kp RALT
