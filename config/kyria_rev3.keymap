@@ -179,11 +179,9 @@ bindings = <
 >;
 sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 };
-;
+
 L1_SYM {
 bindings = <
-// HOME END PG_UP PG_DN CAPS SLCK
-// ?? K_APP
 //╭───────────┬───  [  ───┬───  ]  ───┬───  {  ───┬───  }  ───┬──── ~ ────╮            SYMBOLS + NUMERIC + CALC             ╭──── + ────┬───────────┬───────────┬───────────┬───────────┬───────────╮
   &trans      &kp  LBKT   &kp  RBKT   &kp  LBRC   &kp  RBRC   &kp TILDE                                                     &kp PLUS    &kp   N7   &kp   N8     &kp   N9    &kp  FSLH   &trans
 //├───────────┼───  <  ───┼───  >  ───┼───  (  ───┼───  )  ───┼──── # ────┤                                                 ├───  =  ───┼───────────┼───────────┼───────────┼──── * ────┼───────────┤
