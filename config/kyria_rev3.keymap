@@ -179,7 +179,7 @@ bindings = <
 >;
 sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
 };
-
+;
 L1_SYM {
 bindings = <
 // HOME END PG_UP PG_DN CAPS SLCK
@@ -189,7 +189,7 @@ bindings = <
 //├───────────┼───  <  ───┼───  >  ───┼───  (  ───┼───  )  ───┼──── # ────┤                                                 ├───  =  ───┼───────────┼───────────┼───────────┼──── * ────┼───────────┤
   &trans      &kp  LT     &kp  GT     &kp  LPAR   &kp  RPAR   &kp HASH                                                      &kp EQUAL   &kp   N4   &kp   N5     &kp   N6    &kp  STAR   &trans
 //├───────────┼──── | ────┼──── & ────┼───  /  ───┼───  \  ───┼───     ───┼───────────┬───────────╮ ╭───────────┬───────────┼───  -  ───┼───────────┼───────────┼───────────┼──── ^ ────┼───────────┤
-  &trans      &kp PIPE    &kp AMPS   &kp  FSLH   &kp  BSLH   &none       &trans      &trans        &trans      &trans      &kp MINUS   &kp   N1    &kp  N2     &kp   N3    &kp  CARET  &trans
+  &trans      &kp PIPE    &kp AMPS    &kp  FSLH   &kp  BSLH   &none       &trans      &trans        &trans      &trans      &kp MINUS   &kp   N1    &kp  N2     &kp   N3    &kp  CARET  &trans
 //╰───────────┴───────────┴───────────┼───────────┼──────────┬┼┬──────────┼───────────┬───────────┤ ├───────────┬───────────┼──────────┬┼┬──────────┼───────────┼───────────┴───────────┴───────────╯
                                       &trans      &trans      &trans      &trans      &trans        &trans      &trans      &trans      &trans      &kp  N0
 //                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
@@ -197,19 +197,14 @@ bindings = <
 sensor-bindings = <&inc_dec_kp PG_UP PG_DN &inc_dec_kp PG_UP PG_DN>;
 };
 
-//├─── ` ¬ ───┼─── £ $ ─
-//  &kp  GRAVE  &money
-
-
-
 L2_ARR {
 bindings = <
-//╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮               ARROWS + MEDIA                    ╭──── ⏯ ────┬─── << ────┬─── >> ────┬───────────┬───────────┬───────────╮
-  &trans      &none       &none       &none       &none       &none                                                         &kp C_PP    &kp C_PREV  &kp C_NEXT  &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP
+//╭───────────┬───────────┬───────────┬───────────┬───────────┬───────────╮               ARROWS + MEDIA                    ╭──── ⏯ ────┬─── MUTE ──┬── VOL - ──┬── VOL + ──┬─── << ────┬─── >> ────╮
+  &trans      &kp HOME    &kp END     &kp PG_DN   &kp PG_UP   &none                                                         &kp C_PP    &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_PREV  &kp C_NEXT
 //├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤                                                 ├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤
-  &trans      &none       &none       &kp INSERT  &kp PSCRN   &none                                                         &none       &kp  LEFT   &kp   UP    &kp  DOWN   &kp  RIGHT  &trans
+  &trans      &kp CAPS    &kp K_CMENU &kp INSERT  &kp PSCRN   &none                                                         &none       &kp  LEFT   &kp   UP    &kp  DOWN   &kp  RIGHT  &trans
 //├───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┬───────────╮ ╭───────────┬───────────┼───────────┼───────────┼───────────┼───────────┼───────────┼───────────┤
-  &trans      &none       &none       &none       &none       &none       &trans      &trans        &trans      &trans      &none       &none       &none       &none       &none       &trans
+  &trans      &kp KP_NUM  &kp GRAVE   &kp POUND   &kp DOLLAR  &none       &trans      &trans        &trans      &trans      &none     &kp C_BRI_UP &kp C_BRI_DN &none       &none       &trans
 //╰───────────┴───────────┴───────────┼───────────┼──────────┬┼┬──────────┼───────────┬───────────┤ ├───────────┬───────────┼──────────┬┼┬──────────┼───────────┼───────────┴───────────┴───────────╯
                                       &trans      &trans      &trans      &trans      &trans        &trans      &trans      &trans      &trans      &trans
 //                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
