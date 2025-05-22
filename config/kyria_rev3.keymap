@@ -42,7 +42,7 @@
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
-            bindings = <&mo>, <&tog>;
+            bindings = <&mo>, <&to>;
         };
         round: round {
             compatible = "zmk,behavior-mod-morph";
@@ -183,7 +183,7 @@ bindings = <
 //├─24────────┼─25────────┼─26────────┼─27────────┼─28────────┼─29────────┼─30────────┬─31────────╮ ╭─32────────┬─33────────┼─34────────┼─35────────┼─36─ , ? ──┼─37─ . ! ──┼─38─ ' " ──┼─39─ % @ ──┤
   &kp  LCTRL  &kp   Z     &kp   X     &kp   C     &kp   V     &kp   B     &none       &none         &none       &to  L0     &kp    N    &kp    M    &com_qmark  &dot_excl   &quo        &at_prc
 //╰───────────┴───────────┴───────────┼─40────────┼─41───────┬┼┬42────────┼─43────────┬─44────────┤ ├─45────────┬─46────────┼─47───────┬┼┬48────────┼─49────────┼───────────┴───────────┴───────────╯
-                                      &kp  LGUI   &kp  LALT   &kp  LSHFT  &mo_tog 1 1 &mo_tog 3 3  MTG(L2_ARR) &kp  BSPC   &kp SPACE   &kp   RET   &kp RALT
+                                      &kp  LGUI   &kp  LALT   &kp  LSHFT  MTG(L1_SYM) MTG(L3_FKEY)  MTG(L2_ARR) &kp  BSPC   &kp SPACE   &kp   RET   &kp RALT
 //                                    ╰───────────┴──────────┴┴┴──────────┴───────────┴───────────╯ ╰───────────┴───────────┴──────────┴┴┴──────────┴───────────╯
 >;
 sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
