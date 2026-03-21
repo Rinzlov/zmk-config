@@ -9,7 +9,7 @@
 #define L1_SYM 1
 #define L2_ARR 2
 #define L3_FKEY 3
-#define LMOD_training 4
+#define L4_MOD 4
 
 #define MTG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
 
